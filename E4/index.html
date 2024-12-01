@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropdown Menu</title>
+    <style>
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .sub-dropdown .sub-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #9d3ddd;
+        min-width: 160px;
+        left: 100%;
+        top: 0;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .sub-dropdown .dropdown-item {
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        background-color: #e6d433;
+        color: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dropdown">
+      <button class="dropdown-item">OPEN MENU</button>
+      <div class="dropdown-content">
+        <div class="sub-dropdown">
+          <button class="dropdown-item" onclick="toggleSubDropdown(this)">
+            Sub Dropdown nr. 1
+          </button>
+          <div class="sub-dropdown-content">
+            <a href="#">Sub Link 1</a>
+            <a href="#">Sub Link 2</a>
+            <a href="#">Sub Link 3</a>
+            <a href="#">YOU</a>
+          </div>
+        </div>
+        <div class="sub-dropdown">
+          <button class="dropdown-item" onclick="toggleSubDropdown(this)">
+            Sub Dropdown nr. 2
+          </button>
+          <div class="sub-dropdown-content">
+            <a href="#">Sub Link 5</a>
+            <a href="#">Sub Link 6</a>
+            <a href="#">Sub Link 7</a>
+            <a href="#">ARE</a>
+          </div>
+          <button class="dropdown-item" onclick="toggleSubDropdown(this)">
+            Sub Dropdown nr. 3
+          </button>
+          <div class="sub-dropdown-content">
+            <a href="#">Sub Link 9</a>
+            <a href="#">Sub Link 10</a>
+            <a href="#">Sub Link 11</a>
+            <a href="#">MY</a>
+          </div>
+        </div>
+        <div class="sub-dropdown">
+          <button class="dropdown-item" onclick="toggleSubDropdown(this)">
+            Sub Dropdown nr. 4
+          </button>
+          <div class="sub-dropdown-content">
+            <a href="#">Sub Link 13</a>
+            <a href="#">Sub Link 14</a>
+            <a href="#">Sub Link 15</a>
+            <a href="#">SUNSHINE</a>
+          </div>
+        </div>
+        <div class="sub-dropdown">
+          <button class="dropdown-item" onclick="toggleSubDropdown(this)">
+            Sub Dropdown nr. 5
+          </button>
+          <div class="sub-dropdown-content">
+            <a href="#">Sub Link 16</a>
+            <a href="#">Sub Link 17</a>
+            <a href="#">Sub Link 18</a>
+            <a href="#">Sub Link 19</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleSubDropdown(button) {
+        var subDropdownContent = button.nextElementSibling;
+        // Check if sub-dropdown content is currently displayed
+        if (subDropdownContent.style.display === "block") {
+          // If displayed, hide sub-dropdown content by setting its style.display to "none"
+          subDropdownContent.style.display = "none";
+          // If not displayed, shows sub-dropdown content by setting its style.display to "block"
+        } else {
+          subDropdownContent.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>

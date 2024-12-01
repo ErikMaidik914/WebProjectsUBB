@@ -1,0 +1,24 @@
+<button (click)="createChild()">Create Property</button>
+<button (click)="createChildMany()">Create Many Properties</button>
+<input
+  type="text"
+  placeholder="description:"
+  #description
+  (input)="refreshFrontend(description.value)"
+/>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Description</th>
+    <th>Address</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let child of children; index as i">
+    <td (dblclick)="updateChild(child.id)">{{ i + 1 }}</td>
+    <td (dblclick)="updateChild(child.id)">{{ child.description }}</td>
+    <td (dblclick)="updateChild(child.id)">{{ child.address }}</td>
+    <td><button (click)="deleteChild(child.id)">Delete</button></td>
+  </tr>
+</table>
+<button (click)="logout()">Logout</button>

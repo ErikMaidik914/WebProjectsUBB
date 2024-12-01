@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Dialog Example</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <style>
+      #dialog {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="showDialog">Motivation + Positivity</button>
+
+    <div id="dialog" title="Dialog Title">
+      <p>I hope you are having a great day, keep your head up and keep going</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#showDialog").click(function () {
+          $("#dialog").dialog({
+            resizable: true,
+            modal: true, // block interaction with the rest of the page
+            closeOnEscape: true,
+            width: 400,
+            height: "auto",
+            closeText: "",
+            buttons: {
+              Close: function () {
+                $(this).dialog("close");
+              },
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

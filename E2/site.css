@@ -1,0 +1,56 @@
+.image-flip {
+  background-image: url("./img/samurai.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 600px;
+}
+
+.image-flip:hover {
+  transform: rotateY(180deg);
+  transition: transform 0.5s ease;
+}
+
+.div-1 {
+  background-color: red;
+  height: 400px;
+  width: 400px;
+  display: flex; /* enables to align*/
+  align-items: center;
+  pointer-events: none;
+}
+.div-2 {
+  background-color: orange;
+  height: 300px;
+  width: 300px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.div-3 {
+  background-color: yellow;
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.div-4 {
+  background-color: limegreen;
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  pointer-events: auto;
+}
+
+.div-1:hover {
+  background-color: limegreen;
+}
+.div-2:hover {
+  background-color: limegreen;
+}
+.div-3:hover {
+  background-color: limegreen;
+}

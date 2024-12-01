@@ -1,0 +1,19 @@
+<div>
+  <label>
+    Name:
+    <input [(ngModel)]="childName" name="name" required />
+  </label>
+  <label>
+    Parent:
+    <select [(ngModel)]="parentId" name="parentId" required>
+      <option *ngFor="let parent of parents" [value]="parent.id">
+        {{ parent.name }}
+      </option>
+    </select>
+  </label>
+  <button (click)="saveChild()">Save Child</button>
+</div>
+<div *ngFor="let child of children">
+  {{ child.name }} (Parent ID: {{ child.parentId }})
+</div>
+<button (click)="submitChildren()">Submit All Children</button>

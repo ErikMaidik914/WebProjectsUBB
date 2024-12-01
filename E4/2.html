@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropdown Menu</title>
+    <style>
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .sub-dropdown .sub-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #9d3ddd;
+        min-width: 160px;
+        left: 100%;
+        top: 0;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .sub-dropdown .dropdown-item {
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        background-color: #e6d433;
+        color: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      //containerul de dropdown
+      const dropdownContainer = document.createElement("div");
+      dropdownContainer.classList.add("dropdown");
+
+      const openButton = document.createElement("button");
+      openButton.classList.add("dropdown-item");
+      openButton.textContent = "OPEN MENUUUU";
+      dropdownContainer.appendChild(openButton);
+
+      //contentul
+      const dropdownContent = document.createElement("div");
+      dropdownContent.classList.add("dropdown-content");
+
+      //sub-dropdowns
+      for (let i = 1; i <= 5; i++) {
+        const subDropdown = document.createElement("div");
+        subDropdown.classList.add("sub-dropdown");
+
+        const dropdownButton = document.createElement("button");
+        dropdownButton.classList.add("dropdown-item");
+        dropdownButton.textContent = `Sub Dropdown nr. ${i}`;
+        dropdownButton.onclick = function () {
+          toggleSubDropdown(this);
+        };
+        subDropdown.appendChild(dropdownButton);
+
+        const subDropdownContent = document.createElement("div");
+        subDropdownContent.classList.add("sub-dropdown-content");
+        //generam linkurile pt content
+        for (let j = 1; j <= 4; j++) {
+          const subLink = document.createElement("a");
+          subLink.href = "#";
+          subLink.textContent = `Sub Link ${i - 1 + j}`;
+          subDropdownContent.appendChild(subLink);
+        }
+
+        subDropdown.appendChild(subDropdownContent);
+        dropdownContent.appendChild(subDropdown);
+      }
+      dropdownContainer.appendChild(dropdownContent);
+
+      function toggleSubDropdown(button) {
+        var subDropdownContent = button.nextElementSibling;
+        // Check if sub-dropdown content is currently displayed
+        if (subDropdownContent.style.display === "block") {
+          // If displayed, hide sub-dropdown content by setting its style.display to "none"
+          subDropdownContent.style.display = "none";
+          // If not displayed, shows sub-dropdown content by setting its style.display to "block"
+        } else {
+          subDropdownContent.style.display = "block";
+        }
+      }
+      document.body.appendChild(dropdownContainer);
+    </script>
+  </body>
+</html>
